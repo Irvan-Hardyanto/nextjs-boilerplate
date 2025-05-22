@@ -13,7 +13,7 @@ const tabs = [
 ];
 export default function Home() {
   return (
-    <div className="h-full w-full m-auto text-center">
+    <div className="h-full w-full text-center">
       <TabLayout menus={tabs} />
     </div>
   );

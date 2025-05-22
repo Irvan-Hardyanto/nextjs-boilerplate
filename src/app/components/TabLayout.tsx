@@ -2,6 +2,7 @@
 
 import { ReactNode, useState } from "react";
 import Button from "./Button";
+import clsx from "clsx";
 
 type TTabItem = {
   label: string;
@@ -33,14 +34,18 @@ function TabLayout({ menus }: TTabLayoutProps) {
           );
         })}
       </div>
-      <div id="tab-content">
+      <div id="tab-content" className="relative w-full">
         {menus.map((m, idx) => (
           <div
             id={idx === activeTab ? "active" : "inactive"}
             data-index={idx}
             key={idx}
-            style={{ display: idx === activeTab ? "block" : "none" }}
-            className="transition-colors"
+            // style={{ display: idx === activeTab ? "block" : "none" }}
+            className={clsx(
+              "absolute w-full transition duration-200",
+              idx === activeTab && "opacity-100 z-10",
+              idx !== activeTab && "opacity-0 pointer-events-none",
+            )}
           >
             {m.content}
           </div>
