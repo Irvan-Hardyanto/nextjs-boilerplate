@@ -1,4 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Boiler Plate
+
+This is my _very_ first attempt to create a 'boilerplate code' using [Next.js](https://nextjs.org), bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Motivation
+
+I created this repo as a side-hobby, learn next.js, and to address the common problems I found when starting new projects:
+
+1.  Time wasted on initial setup
+2.  Missed dependencies (Prettier, ESLint, etc)
+3.  Basic components (Buttons, Input, etc)
+
+## What's Included
+
+At the time of creation, 22nd May 2025
+
+1.  React (19.0.0)
+2.  Next.js (15.3.2)
+3.  Prettier (3.5.3)
+4.  ESLint ()
+5.  Tailwind CSS (^4)
+6.  Class Variance Authority (^0.7.1)
+
+New libraries / dependencies might be added in the future.
 
 ## Getting Started
 
