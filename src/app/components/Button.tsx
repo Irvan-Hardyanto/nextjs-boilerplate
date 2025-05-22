@@ -1,19 +1,11 @@
-import React from 'react';
-import { cva, VariantProps } from 'class-variance-authority';
-const buttonClassName = cva(
-"flex items-center cursor-pointer",
-{
+import React from "react";
+import { cva, VariantProps } from "class-variance-authority";
+const buttonClassName = cva("flex items-center cursor-pointer", {
   variants: {
     variant: {
-      primary: [
-        ""
-      ],
-      secondary: [
-        ""
-      ],
-      tertiary: [
-        ""
-      ],
+      primary: [""],
+      secondary: [""],
+      tertiary: [""],
     },
     negative: {
       true: null,
@@ -28,53 +20,52 @@ const buttonClassName = cva(
     {
       variant: "primary",
       negative: true,
-      class: [
-        ""
-      ],
+      class: [""],
     },
     {
       variant: "secondary",
       negative: true,
-      class: [
-        ""
-      ],
+      class: [""],
     },
     {
       variant: "tertiary",
       negative: true,
-      class: [
-        ""
-      ],
+      class: [""],
     },
   ],
   defaultVariants: {
     variant: "primary",
     size: "default",
   },
-}
-);
+});
 
 type TButtonProps = {
   className?: string;
   negative?: boolean;
   label: string;
-} & React.ComponentProps<"button"> & VariantProps<typeof buttonClassName>;
+} & React.ComponentProps<"button"> &
+  VariantProps<typeof buttonClassName>;
 
-function Button({className, variant, size, negative, label, ...props}:TButtonProps) {
+function Button({
+  className,
+  variant,
+  size,
+  negative,
+  label,
+  ...props
+}: TButtonProps) {
   return (
-    <button 
-     className={
-        buttonClassName({
-          variant,
-          size,
-          className,
-          negative,
-        })
-      }
+    <button
+      className={buttonClassName({
+        variant,
+        size,
+        className,
+        negative,
+      })}
       {...props}
-            >
-              {label}
-            </button>
+    >
+      {label}
+    </button>
   );
 }
 
