@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import Button from "./Button";
 
 type TTabItem = {
@@ -16,9 +16,6 @@ type TTabLayoutProps = {
 function TabLayout({ menus }: TTabLayoutProps) {
   const [activeTab, setActiveTab] = useState<number>(0);
 
-  useEffect(() => {
-    console.log("activeTab is: ", activeTab);
-  }, [activeTab]);
   return (
     <div id="tab-container" className="flex flex-col">
       <div id="tabs" className="flex gap-4 mb-2">
