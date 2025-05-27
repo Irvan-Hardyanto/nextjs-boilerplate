@@ -35,21 +35,24 @@ function TabLayout({ menus }: TTabLayoutProps) {
         })}
       </div>
       <div id="tab-content" className="relative w-full">
-        {menus.map((m, idx) => (
-          <div
-            id={idx === activeTab ? "active" : "inactive"}
-            data-index={idx}
-            key={idx}
-            // style={{ display: idx === activeTab ? "block" : "none" }}
-            className={clsx(
-              "absolute w-full transition duration-200",
-              idx === activeTab && "opacity-100 z-10",
-              idx !== activeTab && "opacity-0 pointer-events-none",
-            )}
-          >
-            {m.content}
-          </div>
-        ))}
+        {menus.map((m, idx) => {
+          const isActive = idx === activeTab;
+          return (
+            <div
+              id={idx === activeTab ? "active" : "inactive"}
+              data-index={idx}
+              key={idx}
+              // style={{ display: idx === activeTab ? "block" : "none" }}
+              className={clsx(
+                "absolute w-full transition duration-200",
+                isActive && "opacity-100 z-10",
+                !isActive && "opacity-0 pointer-events-none",
+              )}
+            >
+              {isActive && m.content}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
