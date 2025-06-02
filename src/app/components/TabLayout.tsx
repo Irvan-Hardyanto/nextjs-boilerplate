@@ -1,12 +1,15 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Button from "./Button";
 import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type TTabItem = {
   label: string;
   content: ReactNode;
+  href?: string;
 };
 
 type TTabLayoutProps = {
@@ -16,11 +19,39 @@ type TTabLayoutProps = {
 
 function TabLayout({ menus }: TTabLayoutProps) {
   const [activeTab, setActiveTab] = useState<number>(0);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    console.log("pathname is: ", pathname);
+  }, [pathname]);
+
+  useEffect(() => {
+    console.log("re rendering the TabLayout");
+  }, []);
 
   return (
     <div id="tab-container" className="flex flex-col">
       <div id="tabs" className="flex gap-4 mb-2">
         {menus.map((m, idx) => {
+          if (m.href) {
+            return (
+              <Link
+                href={{
+                  pathname: m.href,
+                }}
+              >
+                <Button
+                  key={idx}
+                  data-index={idx}
+                  onClick={(e) =>
+                    setActiveTab(Number(e.currentTarget.dataset.index))
+                  }
+                  className="px-4 py-2 border border-amber-400 rounded-sm hover:scale-110 duration-200"
+                  label={m.label}
+                />
+              </Link>
+            );
+          }
           return (
             <Button
               key={idx}
